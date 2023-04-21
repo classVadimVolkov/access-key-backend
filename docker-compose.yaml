@@ -1,0 +1,17 @@
+networks:
+  access-key-network:
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: access-key-postgres
+    expose:
+      - 5432
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1
+      - POSTGRES_DB=templates
+    networks:
+      - access-key-network

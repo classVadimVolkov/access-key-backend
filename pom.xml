@@ -17,6 +17,7 @@
         <java.version>17</java.version>
         <mapstruct.version>1.5.3.Final</mapstruct.version>
         <spring-boot.version>3.0.2</spring-boot.version>
+        <dnsjava.version>3.5.2</dnsjava.version>
     </properties>
     <dependencies>
         <dependency>
@@ -97,6 +98,12 @@
             <artifactId>testng</artifactId>
             <version>RELEASE</version>
             <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>dnsjava</groupId>
+            <artifactId>dnsjava</artifactId>
+            <version>${dnsjava.version}</version>
         </dependency>
     </dependencies>
 

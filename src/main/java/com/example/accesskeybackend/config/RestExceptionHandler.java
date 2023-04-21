@@ -3,6 +3,7 @@ package com.example.accesskeybackend.config;
 import com.example.accesskeybackend.exception.AlreadyActivatedException;
 import com.example.accesskeybackend.exception.IllegalArgumentException;
 import com.example.accesskeybackend.exception.NotFoundException;
+import com.example.accesskeybackend.exception.InvalidSiteUrlException;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import lombok.extern.log4j.Log4j2;
@@ -45,6 +46,12 @@ public class RestExceptionHandler {
                 .toList();
 
         return new ExceptionResponse(exceptions);
+    }
+
+    @ExceptionHandler(value = InvalidSiteUrlException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ExceptionResponse invalidSiteUrl(final InvalidSiteUrlException ex) {
+        return new ExceptionResponse(List.of(ex.getMessage()));
     }
 
 
